@@ -21,6 +21,17 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    // This api will be accessible to all
+    @GetMapping("/")
+    public String welcomeToStore(){
+
+        return "Welcome to store";
+
+
+    }
+
+
+    // This api will be accessible to some user
     @GetMapping("/api/engProduct")
     public ResponseEntity<?> getEngineProduct(){
 
@@ -31,6 +42,7 @@ public class ProductController {
 
     }
 
+    // This api will accessible only to admin
     @PostMapping("/api/saveEngProduct")
     public ResponseEntity<?> saveEngProduct(@RequestBody EngineProduct engineProduct){
 
