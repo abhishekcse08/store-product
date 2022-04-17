@@ -1,6 +1,7 @@
 package com.store.products.store.services.impl;
 
 import com.store.products.store.customexception.BusinessException;
+import com.store.products.store.customexception.EmptyInputException;
 import com.store.products.store.dao.CustomEngineProductDatabase;
 import com.store.products.store.dto.EngineProduct;
 import com.store.products.store.services.ProductService;
@@ -38,7 +39,7 @@ public class ProductServiceImpl implements ProductService {
     public List<EngineProduct> addEngineProduct(EngineProduct product) {
 
         if(product.getEngName().isEmpty() || product.getEngName().length()==0){
-            throw new BusinessException("601","Product Engine Name is blank or Null");
+            throw new EmptyInputException("601","Product Engine Name is blank or Null");
         }
         try{
 
